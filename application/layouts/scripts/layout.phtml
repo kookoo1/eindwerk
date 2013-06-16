@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>Test layout1</title>
+        <link href="/public/css/style.css" rel="stylesheet" />
+        <!-- media queries css -->
+        <link href="/public/css/media-queries.css" rel="stylesheet" type="text/css">
+        <meta charset="UTF-8" />
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <!-- css3-mediaqueries.js for IE less than 9 -->
+        <!--[if lt IE 9]>
+                <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div id="container">
+            <header id="header">
+                <h1 class="hidden">Shop Bloemen en planten</h1>
+                <div id="site-logo">
+                    <img src="/public/images/logo.png" alt="Bloem" width="100em" />
+                </div>
+
+
+                <nav  id="main-nav" class="clearfix">
+                    <?php echo $this->navigation()->menu(); ?>
+                </nav>
+                <!-- /#main-nav --> 
+                <form id="loginform">
+                    <input type="button" id="l" value="Login" onclick="location.href = 'http://www.christofderaedt.be';">
+                </form>
+                <form id="searchform">
+                    <input type="search" id="s" placeholder="Search">
+                </form>
+
+            </header>
+
+            <section id="content">
+                <?php echo $this->layout()->content; ?>
+                <?php echo "gdfg"; ?>
+            </section>
+
+
+            <!-- /#content -->             
+            <aside id="sidebar">
+                <section class="category">
+                    <?php //echo $this->category()->overview(); ?>
+                    <!--
+                    <h4 class="categorytitle">Category</h4>
+                    <ul>
+                        <li><a href="#">Bloemen</a> (3)</li>
+                        <li><a href="#">Bomen</a> (23)</li>
+                        <li><a href="#">Struiken </a>(18)</li>
+                        <?php //echo $this->category()->menu(); ?>
+                    </ul>
+                    -->
+                </section>
+                <!-- /.widget -->
+
+
+            </aside>
+            <!-- /#sidebar -->
+
+            <footer id="footer">
+
+                <p>Webmaster-Advanced 2013 : <a href="#">Kris Brassaert</a></p>
+
+            </footer>
+            <!-- /#footer --> 
+        </div>
+    </body>
+</html>
+
+<?php
+//echo $this->layout()->content; ?>
