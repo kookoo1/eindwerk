@@ -38,9 +38,9 @@ class Application_Model_Page extends Zend_Db_Table_Abstract {
     public function getPage($locale, $slug = null) {
 
 
-                var_dump($locale); 
-                var_dump($slug);
-                die();
+//                var_dump($locale); 
+//                var_dump($slug);
+//                die();
                 
         // extra fout opvangen
         if ($slug === null) {
@@ -52,7 +52,7 @@ class Application_Model_Page extends Zend_Db_Table_Abstract {
                 ->where('slug =?', $slug); // altijd meegeven vorm van beveiliging
         $result = $this->fetchAll($select)->current(); // is altijd maar "één pagina ==> één slug = één pagina
         var_dump($result);
-        die;
+//        die;
         return $result;
     }
 

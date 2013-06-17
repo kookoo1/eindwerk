@@ -18,7 +18,8 @@ class CategoryController extends Zend_Controller_Action
         $categoryModel = new Application_Model_Category();
         $category = $categoryModel->getAllCategory(); // haal alles op
 //        $producten = $productenModel->fetchAll();
-        var_dump($category);
+        //var_dump($category);
+//        die();
         $this->view->category = $category;
         
         

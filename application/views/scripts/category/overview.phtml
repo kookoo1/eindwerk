@@ -1,0 +1,15 @@
+<section class="category">
+    <?php //echo $this->category()->overview(); ?>
+    <h4 class="categorytitle"><?= $this->translate('categorie'); ?></h4>
+    <ul>
+    
+    <?php
+    foreach ($this->category as $categorie) {
+
+       //echo $this->form;
+        echo "<li><a href='producten/id/".$categorie['categoryID']."'>". $categorie['name'] . "</a>";
+    };
+    ?>  
+    </ul>        
+</section>
+

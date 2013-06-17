@@ -16,28 +16,23 @@ class Eindwerk_Controller_Plugin_Navigation extends Zend_Controller_Plugin_Abstr
 
 //        var_dump($pages);
 //        die;
-    $container = new Zend_Navigation();
+        $container = new Zend_Navigation();
 
-    foreach ($pages as $page) {
+        foreach ($pages as $page) {
 
-        $menu = new Zend_Navigation_Page_Mvc(
-                array('label' => $page['title'],
-            'route' => 'page', // de route om mooiere URL te maken
-            'params' => array('slug' => $page['slug'],
+            $menu = new Zend_Navigation_Page_Mvc(array(
+                'label' => $page['title'],
+                'route' => 'page', // de route om mooiere URL te maken
+                'params' => array('slug' => $page['slug'],
                 'lang' => $locale)));
 
-//                                var_dump($menu);
-        $container->addPage($menu);
-    }
+//            var_dump($menu);
+            $container->addPage($menu);
+        }
 
+        Zend_Registry::set('Zend_Navigation', $container);
 
-
-//        die;
-    Zend_Registry::set('Zend_Navigation', $container);
-        
-        
-        
-        
+        return $container;
     }
 
 }

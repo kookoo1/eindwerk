@@ -10,6 +10,7 @@ class Application_Model_MyAbstractDB extends Zend_Db_Table_Abstract {
     const STATUS_ONLINE     = 1;
     const STATUS_OFFLINE    = 0;
 
+    
 
 }
 

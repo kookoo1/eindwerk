@@ -13,13 +13,16 @@ class PageController extends Zend_Controller_Action
         $locale = Zend_Registry::get('Zend_Locale');
 //        $lang = $this->getParam('lang'); // andere manier om var op te halen
         $slug =$this->getParam('slug');
-       var_dump($slug);
-       die();
+//       var_dump($slug);
+//       die();
         $pageModel = new Application_Model_Page();
         $page = $pageModel->getPage($locale, $slug);
         $this->view->page = $page;
+//        $this->view->$slug;
+//        die();
     }
 
 
 }
 
+?>

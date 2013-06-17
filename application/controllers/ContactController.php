@@ -14,6 +14,8 @@ class ContactController extends Zend_Controller_Action
     }
     public function showAction()
     {
+//        echo 'showAction';
+//        die();
         // action body
     }
 

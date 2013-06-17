@@ -36,15 +36,15 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             'action' => 'index'
         )));
 
-        $router->addRoute('login', new Zend_Controller_Router_Route(':lang/login', array(
-            'controller' => 'Users',
-            'action' => 'login'
-        )));
-
-        $router->addRoute('logout', new Zend_Controller_Router_Route(':lang/logout', array(
-            'controller' => 'Users',
-            'action' => 'logout'
-        )));
+//        $router->addRoute('login', new Zend_Controller_Router_Route(':lang/login', array(
+//            'controller' => 'Users',
+//            'action' => 'login'
+//        )));
+//
+//        $router->addRoute('logout', new Zend_Controller_Router_Route(':lang/logout', array(
+//            'controller' => 'Users',
+//            'action' => 'logout'
+//        )));
 
         $router->addRoute('page', new Zend_Controller_Router_Route(':lang/pagina/:slug', array(
             'controller' => 'page',
@@ -54,28 +54,47 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
 
 
-        $router->addRoute('admin', new Zend_Controller_Router_Route('admin/:controller/:action', array(
-            'module' => 'admin',
-            'controller' => 'index',
-            'action' => 'index'
-        )));
+//        $router->addRoute('admin', new Zend_Controller_Router_Route('admin/:controller/:action', array(
+//            'module' => 'admin',
+//            'controller' => 'index',
+//            'action' => 'index'
+//        )));
 
-
-
-        // the Krb_Shop routes
-        $router->addRoute('home', new Zend_Controller_Router_Route(':lang/pagina', array(
-            'controller' => 'home',
-            'action' => 'index'
-        )));
-        $router->addRoute('producten', new Zend_Controller_Router_Route(':lang/pagina/:slug', array(
-            'controller' => 'Producten',
+         $router->addRoute('category', new Zend_Controller_Router_Route(':lang/pagina/:slug', array(
+            'controller' => 'category',
             'action' => 'overview'
         )));
 
-        $router->addRoute('details', new Zend_Controller_Router_Route(':lang/pagina/details/id/:id', array(
-            'controller' => 'Producten',
-            'action' => 'details'
-        )));
+
+        // the Krb_Shop routes
+//         $router->addRoute('contact', new Zend_Controller_Router_Route(':lang/pagina/:slug', array(
+//            'controller' => 'contact',
+//            'action' => 'show'
+//        )));
+//        
+//        
+//        $router->addRoute('home', new Zend_Controller_Router_Route(':lang/pagina/:slug', array(
+//            'controller' => 'home',
+//            'action' => 'index'
+//        )));
+        
+//        echo 'hier syop ij';
+//        die();
+//        
+//        $router->addRoute('home', new Zend_Controller_Router_Route(':lang/pagina/home', array(
+//            'controller' => 'index',
+//            'action' => 'index'
+//        )));
+//        
+//        $router->addRoute('producten', new Zend_Controller_Router_Route(':lang/pagina/:slug', array(
+//            'controller' => 'Producten',
+//            'action' => 'overview'
+//        )));
+//
+//        $router->addRoute('details', new Zend_Controller_Router_Route(':lang/pagina/details/id/:id', array(
+//            'controller' => 'Producten',
+//            'action' => 'details'
+//        )));
     }
 }
 
