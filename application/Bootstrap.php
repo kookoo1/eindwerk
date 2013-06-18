@@ -10,6 +10,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
         $front->registerPlugin(new Eindwerk_Controller_Plugin_Translate()); // => library/Syntra/Controller/Plugin/Translate.php
         $front->registerPlugin(new Eindwerk_Controller_Plugin_Navigation());
+        $front->registerPlugin(new Eindwerk_Controller_Plugin_NavigationCatg());
         //$front->registerPlugin(new Eindwerk_Auth_Acl());
         //$front->registerPlugin(new Eindwerk_Auth_Auth());
     }
@@ -60,7 +61,17 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 //            'action' => 'index'
 //        )));
 
-         $router->addRoute('category', new Zend_Controller_Router_Route(':lang/pagina/:slug', array(
+        
+//        $router->addRoute('home', new Zend_Controller_Router_Route(':lang/:slug', array(
+//            'controller' => 'home',
+//            'action' => 'index'
+//        )));
+//        
+//         $router->addRoute('category', new Zend_Controller_Router_Route(':lang/category/:slug', array(
+//            'controller' => 'category',
+//            'action' => 'overview'
+//        )));
+         $router->addRoute('category', new Zend_Controller_Router_Route(':lang/category/:slug', array(
             'controller' => 'category',
             'action' => 'overview'
         )));
@@ -73,10 +84,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 //        )));
 //        
 //        
-//        $router->addRoute('home', new Zend_Controller_Router_Route(':lang/pagina/:slug', array(
-//            'controller' => 'home',
-//            'action' => 'index'
-//        )));
         
 //        echo 'hier syop ij';
 //        die();

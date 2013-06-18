@@ -1,5 +1,16 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Page</b> and script/action name <b>index</b></p>
-        <?php $this->getParam('slug'); ?>
-</div>
+
+<section id="creations">
+    <?php
+               
+        echo "<article id='page'>";
+        echo "<h1>" . $this->page['title'] . "</h1>";
+        echo "<div id='description'>";
+        echo "<p>" . $this->page['description'] . "</p>";
+        echo "</div>";
+
+        
+        
+        echo '</article>';
+//    };
+    ?>
+</section >

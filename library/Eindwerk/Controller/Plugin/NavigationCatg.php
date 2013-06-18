@@ -1,6 +1,6 @@
 <?php
 
-class Eindwerk_Controller_Plugin_Navigation extends Zend_Controller_Plugin_Abstract {
+class Eindwerk_Controller_Plugin_NavigationCatg extends Zend_Controller_Plugin_Abstract {
 
     /**
      * 
@@ -11,8 +11,8 @@ class Eindwerk_Controller_Plugin_Navigation extends Zend_Controller_Plugin_Abstr
 
 
         $locale = Zend_Registry::get('Zend_Locale');
-        $model = new Application_Model_Page();
-        $pages = $model->getMenu($locale);
+        $model = new Application_Model_Category();
+        $pages = $model->getAllCategory();
 
 //        var_dump($pages);
 //        die;
@@ -21,20 +21,21 @@ class Eindwerk_Controller_Plugin_Navigation extends Zend_Controller_Plugin_Abstr
         foreach ($pages as $page) {
 
             $menu = new Zend_Navigation_Page_Mvc(array(
-                'label' => $page['title'],
-                'route' => 'page', // de route om mooiere URL te maken
-                'params' => array('slug' => $page['slug'],
-                'lang' => $locale)));
+                'label' => $page['name'],
+                'route' => 'category', // de route om mooiere URL te maken
+                'params' => array('slug' => $page['label'],
+                    'lang' => $locale)));
 
 //            var_dump($menu);
             $container->addPage($menu);
         }
 
 //        Zend_Registry::set('Zend_Navigation', $container);
-        Zend_Registry::set('mainMenu', $container);
+        Zend_Registry::set('catgMenu', $container);
 
         return $container;
     }
 
 }
 
+?>

@@ -23,7 +23,11 @@
 
 
                 <nav  id="main-nav" class="clearfix">
-                    <?php echo $this->navigation()->menu(); ?>
+
+                    <?php
+                    $mainMenu = Zend_Registry::get('mainMenu');
+                    echo $this->navigation()->menu()->renderMenu($mainMenu);
+                    ?>
                 </nav>
                 <!-- /#main-nav --> 
                 <form id="loginform">
@@ -43,18 +47,21 @@
 
             <!-- /#content -->             
             <aside id="sidebar">
+
                 <section class="category">
                     <?php //echo $this->category()->overview(); ?>
-                    <!--
-                    <h4 class="categorytitle">Category</h4>
-                    <ul>
-                        <li><a href="#">Bloemen</a> (3)</li>
-                        <li><a href="#">Bomen</a> (23)</li>
-                        <li><a href="#">Struiken </a>(18)</li>
-                        <?php //echo $this->category()->overview(); ?>
-                    </ul>
-                    -->
+                    <h4 class="categorytitle"><?= $this->translate('categorie'); ?></h4>
+                    <nav  id="catg-nav" class="clearfix">
+
+                        <?php
+                        $mainMenu = Zend_Registry::get('catgMenu');
+                        echo $this->navigation()->menu()->renderMenu($mainMenu);
+                        ?>
+                    </nav>
+
                 </section>
+
+
                 <!-- /.widget -->
 
 
