@@ -1,0 +1,15 @@
+<h1>Producten overzicht</h1>
+<section id="creations">
+    <?php
+    foreach ($this->producten as $producten) {
+
+//                var_dump($producten);
+        echo "<article id='product'>";
+        echo "<h1>" . $producten['title'] . "</h1>";
+
+        //echo $this->form;
+        echo "<a href='detail/id/".$producten['productID']."'>Detail</a>";
+        echo '</article>';
+    };
+    ?>
+</section >

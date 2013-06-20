@@ -23,6 +23,11 @@
         <controllerFile controllerName="Contact">
           <actionMethod actionName="index"/>
         </controllerFile>
+        <controllerFile controllerName="Producten">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="overview"/>
+          <actionMethod actionName="detail"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false"/>
       <layoutsDirectory>
@@ -35,6 +40,7 @@
         <modelFile modelName="Translation"/>
         <modelFile modelName="Category"/>
         <modelFile modelName="MyAbstractDB"/>
+        <modelFile modelName="Producten"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
@@ -63,6 +69,15 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Category">
             <viewScriptFile forActionName="overview"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Producten">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Producten">
+            <viewScriptFile forActionName="overview"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Producten">
+            <viewScriptFile forActionName="detail"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

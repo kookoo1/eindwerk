@@ -32,7 +32,7 @@
                 <!-- /#main-nav --> 
                 <form id="loginform">
                     <input type="button" id="l" value="Login" 
-                           onclick="location.href ='/login'">
+                           onclick="location.href = '/login'">
                 </form>
                 <form id="searchform">
                     <input type="search" id="s" placeholder="Search">
@@ -41,7 +41,7 @@
             </header>
 
             <section id="content">
-<?php echo $this->layout()->content; ?>
+                <?php echo $this->layout()->content; ?>
 
             </section>
 
@@ -50,7 +50,7 @@
             <aside id="sidebar">
 
                 <section class="category">
-<?php //echo $this->category()->overview();  ?>
+                    <?php //echo $this->category()->overview();  ?>
                     <h4 class="categorytitle"><?= $this->translate('categorie'); ?></h4>
                     <nav  id="catg-nav" class="clearfix">
 

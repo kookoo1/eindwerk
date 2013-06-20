@@ -22,9 +22,11 @@ class Eindwerk_Controller_Plugin_NavigationCatg extends Zend_Controller_Plugin_A
 
             $menu = new Zend_Navigation_Page_Mvc(array(
                 'label' => $page['name'],
-                'route' => 'category', // de route om mooiere URL te maken
-                'params' => array('slug' => $page['label'],
-                    'lang' => $locale)));
+                'route' => 'product', // de route om mooiere URL te maken
+//                'route' => $page['label'], // de route om mooiere URL te maken
+                'params' => array('catgslug' => $page['label'],'slug' => $page['label'],
+                    'lang' => $locale),
+                    'id' => $page['categoryID']));
 
 //            var_dump($menu);
             $container->addPage($menu);

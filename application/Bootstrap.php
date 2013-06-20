@@ -70,13 +70,21 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             'action' => 'show'
         )));
         
-        $router->addRoute('category', new Zend_Controller_Router_Route(':lang/category/:slug', array(
-            'controller' => 'category',
+//        $router->addRoute('category', new Zend_Controller_Router_Route(':lang/category/:slug', array(
+//            'controller' => 'category',
+//            'action' => 'overview'
+//        )));
+        $router->addRoute('product', new Zend_Controller_Router_Route(':lang/product/:slug', array(
+            'controller' => 'producten',
             'action' => 'overview'
         )));
+        $router->addRoute('productDetail', new Zend_Controller_Router_Route(':lang/product/detail/id/:id', array(
+            'controller' => 'producten',
+            'action' => 'detail'
+        )));
+   
 
-         
-         
+   
          
 
 //        $router->addRoute('admin', new Zend_Controller_Router_Route('admin/:controller/:action', array(
