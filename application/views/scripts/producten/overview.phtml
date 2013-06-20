@@ -1,4 +1,4 @@
-<h1>Producten overzicht</h1>
+<h1>Producten overzicht (TODO nog vertalen!!)</h1>
 <section id="creations">
     <?php
     foreach ($this->producten as $producten) {
@@ -6,10 +6,22 @@
 //                var_dump($producten);
         echo "<article id='product'>";
         echo "<h1>" . $producten['title'] . "</h1>";
+        echo "<figure>";
+        echo "<img src='/images/producten/" . $producten['productID'] . "/" . $producten['productID'] . ".jpg' alt=" . $producten['productID'] . ">";
+
+        echo "</figure>";
+
+        echo "<div id='product'>";
+        echo "<p>" . $producten['teaser'] . "</p>";
+        echo "</div>";
+
+        echo "<div id='price'>&euro; " . $producten['price'] . "</div>";
 
         //echo $this->form;
-        echo "<a href='detail/id/".$producten['productID']."'>Detail</a>";
+        echo "<a href='detail/id/" . $producten['productID'] . "'>Detail</a>";
         echo '</article>';
     };
     ?>
 </section >
+
+

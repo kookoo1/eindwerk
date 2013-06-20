@@ -5,19 +5,17 @@
 //var_dump($this->producten);
     echo "<article id='product'>";
     echo "<h1>" . $this->producten['title'] . "</h1>";
-//    echo "<figure>";
-//    echo "<img src='/public/images/producten/" . $this->producten['prodimg'] .
-//            ".jpg' alt=" . $this->producten['prodimg'] . ">";
-//
-//    echo "</figure>";
-//    echo "<div id='description'>";
-//    echo "<p>" . $this->producten['proddef'] . "</p>";
-//    echo "</div>";
-//
-//    echo "<div id='price'>&euro; " . $this->producten['prodprice'] . "</div>";
-//
-//    //echo $this->form;
-//    echo "<a href='bestel'>Bestel</a>";
+    echo "<figure>";
+    echo "<img src='/images/producten/" . $this->producten['productID'] . "/" . $this->producten['productID'] . ".jpg' alt=" . $this->producten['productID'] . ">";
+
+    echo "</figure>";
+    echo "<div id='description'>";
+    echo "<p>" . $this->producten['content'] . "</p>";
+    echo "</div>";
+    echo "<div id='price'>&euro; " . $this->producten['price'] . "</div>";
+
+
+    echo "<a href='bestel'>Bestel</a>";
     echo '</article>';
     ?>
 </section >
