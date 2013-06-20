@@ -11,13 +11,13 @@ smaller than 980
     /* content */
     #content {
         /* background: #f0f; */
-        width: 60%;
+        width: 69%;
         padding: 3% 4%;
     }
     
     /* sidebar */
     #sidebar {
-        width: 30%;
+        width: 20%;
     }
     #sidebar .category {
         padding: 8% 7%;
