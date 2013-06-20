@@ -22,7 +22,8 @@ class Eindwerk_Controller_Plugin_Navigation extends Zend_Controller_Plugin_Abstr
 
             $menu = new Zend_Navigation_Page_Mvc(array(
                 'label' => $page['title'],
-                'route' => 'page', // de route om mooiere URL te maken
+//                'route' => 'page', // de route om mooiere URL te maken
+                'route' => $page['slug'], // de route om mooiere URL te maken
                 'params' => array('slug' => $page['slug'],
                 'lang' => $locale)));
 
@@ -33,6 +34,8 @@ class Eindwerk_Controller_Plugin_Navigation extends Zend_Controller_Plugin_Abstr
 //        Zend_Registry::set('Zend_Navigation', $container);
         Zend_Registry::set('mainMenu', $container);
 
+        
+        
         return $container;
     }
 

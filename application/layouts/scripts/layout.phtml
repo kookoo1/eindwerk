@@ -1,9 +1,9 @@
 <html>
     <head>
         <title>Test layout1</title>
-        <link href="/public/css/style.css" rel="stylesheet" />
+        <link href="/css/style.css" rel="stylesheet" />
         <!-- media queries css -->
-        <link href="/public/css/media-queries.css" rel="stylesheet" type="text/css">
+        <link href="/css/media-queries.css" rel="stylesheet" type="text/css">
         <meta charset="UTF-8" />
         <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -18,7 +18,7 @@
             <header id="header">
                 <h1 class="hidden">Shop Bloemen en planten</h1>
                 <div id="site-logo">
-                    <img src="/public/images/logo.png" alt="Bloem" width="100em" />
+                    <img src="/images/logo.png" alt="Bloem" width="100em" />
                 </div>
 
 
@@ -31,7 +31,8 @@
                 </nav>
                 <!-- /#main-nav --> 
                 <form id="loginform">
-                    <input type="button" id="l" value="Login" onclick="location.href = 'http://www.christofderaedt.be';">
+                    <input type="button" id="l" value="Login" 
+                           onclick="location.href ='/login'">
                 </form>
                 <form id="searchform">
                     <input type="search" id="s" placeholder="Search">
@@ -40,8 +41,8 @@
             </header>
 
             <section id="content">
-                <?php echo $this->layout()->content; ?>
-                <?php echo " dit is op layout.phtml"; ?>
+<?php echo $this->layout()->content; ?>
+
             </section>
 
 
@@ -49,7 +50,7 @@
             <aside id="sidebar">
 
                 <section class="category">
-                    <?php //echo $this->category()->overview(); ?>
+<?php //echo $this->category()->overview();  ?>
                     <h4 class="categorytitle"><?= $this->translate('categorie'); ?></h4>
                     <nav  id="catg-nav" class="clearfix">
 

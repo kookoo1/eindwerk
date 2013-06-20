@@ -1,6 +1,6 @@
 <?php
 
-class ContactController extends Zend_Controller_Action
+class HomeController extends Zend_Controller_Action
 {
 
     public function init()
@@ -10,7 +10,7 @@ class ContactController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
+        var_dump($this->_getAllParams());
     }
  
 

@@ -3,6 +3,9 @@
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 {
 
+    
+    
+    
     public function _initNavigation() {
         // registreer de Navigation plugin
         $this->bootstrap('frontController');
@@ -20,6 +23,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $db = $this->getResource('db');
         Zend_Registry::set('db', $db);
         // ophalen dmv Zend_Registry::get('db');
+        Zend_Db_Table_Abstract::setDefaultAdapter($db);
     }
   /**
      * put after _initView
@@ -28,15 +32,59 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
      * @return Zend_Controller_Router_Route
      */
     public function _initRouter(array $options = null) {
+        
         $router = $this->getResource('frontcontroller')->getRouter();
 
         // add custom route
         // ':' before param = $_GET
         $router->addRoute('lang', new Zend_Controller_Router_Route(':lang', array(
+            'controller' => 'Home',
+            'action' => 'index'
+        )));
+
+        
+        
+        
+         $router->addRoute('contact', new Zend_Controller_Router_Route(':lang/contact/:slug', array(
+            'controller' => 'contact',
+            'action' => 'show'
+        )));
+         
+         $router->addRoute('login', new Zend_Controller_Router_Route('login', array(
+            'controller' => 'index',
+            'action' => 'index'
+        )));
+         
+        
+        $router->addRoute('home', new Zend_Controller_Router_Route(':lang/home', array(
+            'controller' => 'home',
+            'action' => 'index'
+        )));
+        $router->addRoute('about', new Zend_Controller_Router_Route(':lang/about', array(
             'controller' => 'index',
             'action' => 'index'
         )));
 
+        $router->addRoute('contact', new Zend_Controller_Router_Route(':lang/contact', array(
+            'controller' => 'contact',
+            'action' => 'show'
+        )));
+        
+        $router->addRoute('category', new Zend_Controller_Router_Route(':lang/category/:slug', array(
+            'controller' => 'category',
+            'action' => 'overview'
+        )));
+
+         
+         
+         
+
+//        $router->addRoute('admin', new Zend_Controller_Router_Route('admin/:controller/:action', array(
+//            'module' => 'admin',
+//            'controller' => 'index',
+//            'action' => 'index'
+//        )));
+         
 //        $router->addRoute('login', new Zend_Controller_Router_Route(':lang/login', array(
 //            'controller' => 'Users',
 //            'action' => 'login'
@@ -46,62 +94,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 //            'controller' => 'Users',
 //            'action' => 'logout'
 //        )));
-
-        $router->addRoute('page', new Zend_Controller_Router_Route(':lang/pagina/:slug', array(
-            'controller' => 'page',
-            'action' => 'index'
-        )));
-
-
-
-
-//        $router->addRoute('admin', new Zend_Controller_Router_Route('admin/:controller/:action', array(
-//            'module' => 'admin',
-//            'controller' => 'index',
-//            'action' => 'index'
-//        )));
-
-        
-//        $router->addRoute('home', new Zend_Controller_Router_Route(':lang/:slug', array(
-//            'controller' => 'home',
-//            'action' => 'index'
-//        )));
-//        
-//         $router->addRoute('category', new Zend_Controller_Router_Route(':lang/category/:slug', array(
-//            'controller' => 'category',
-//            'action' => 'overview'
-//        )));
-         $router->addRoute('category', new Zend_Controller_Router_Route(':lang/category/:slug', array(
-            'controller' => 'category',
-            'action' => 'overview'
-        )));
-
-
         // the Krb_Shop routes
-//         $router->addRoute('contact', new Zend_Controller_Router_Route(':lang/pagina/:slug', array(
-//            'controller' => 'contact',
-//            'action' => 'show'
-//        )));
-//        
-//        
-        
-//        echo 'hier syop ij';
-//        die();
-//        
-//        $router->addRoute('home', new Zend_Controller_Router_Route(':lang/pagina/home', array(
-//            'controller' => 'index',
-//            'action' => 'index'
-//        )));
-//        
-//        $router->addRoute('producten', new Zend_Controller_Router_Route(':lang/pagina/:slug', array(
-//            'controller' => 'Producten',
-//            'action' => 'overview'
-//        )));
-//
-//        $router->addRoute('details', new Zend_Controller_Router_Route(':lang/pagina/details/id/:id', array(
-//            'controller' => 'Producten',
-//            'action' => 'details'
-//        )));
+
     }
 }
 
