@@ -26,14 +26,16 @@
 
                     <?php
                     $mainMenu = Zend_Registry::get('mainMenu');
+                    $locale = Zend_Registry::get('Zend_Locale');
                     echo $this->navigation()->menu()->renderMenu($mainMenu);
                     ?>
                 </nav>
                 <!-- /#main-nav --> 
                 <form id="loginform">
                     <input type="button" id="l" value="Login" 
-                           onclick="location.href = '/login'">
-                     
+                           onclick="location.href =
+                                           '<?php echo $this->url(array('lang' => $locale->toString()), "login"); ?>'">
+
                 </form>
                 <form id="searchform">
                     <input type="search" id="s" placeholder="Search">

@@ -50,7 +50,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             'action' => 'show'
         )));
          
-         $router->addRoute('login', new Zend_Controller_Router_Route('login', array(
+         $router->addRoute('login', new Zend_Controller_Router_Route(':lang/login', array(
             'controller' => 'index',
             'action' => 'index'
         )));
