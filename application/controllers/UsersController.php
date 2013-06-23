@@ -57,18 +57,29 @@ class UsersController extends Zend_Controller_Action
     public function logoutAction()
     {
         Zend_Auth::getInstance()->clearIdentity();
-        $redirector = Zend_Controller_Action_HelperBroker::getStaticHelper('redirector');
-        $locale = Zend_Registry::get('Zend_Locale');
-        var_dump($locale);
-        $url = '/' . $locale . '/login';
-        //       var_dump($url);
-        //die;
-//        $redirector->redirector('/nl_BE/login');
-        $redirector->redirector($url);
+   }
+
+    public function guestAction()
+    {
+                       // meegeven welke database driver we gebruiken
+                $authAdapter = new Zend_Auth_Adapter_DbTable(Zend_Registry::get('db'));
+
+                // login
+                $authAdapter->setTableName('users')
+                        ->setIdentityColumn('username')
+                        ->setCredentialColumn('passwd')
+                        ->setIdentity('guest')
+                        ->setCredential('guest');
+
+                // login uitvoeren
+                $result = $auth->authenticate($authAdapter);
+
     }
 
 
 }
+
+
 
 
 

@@ -9,6 +9,7 @@
       <controllersDirectory>
         <controllerFile controllerName="Index">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="about"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="Page">
@@ -32,6 +33,7 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="login"/>
           <actionMethod actionName="logout"/>
+          <actionMethod actionName="guest"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -50,6 +52,7 @@
         <modelFile modelName="Producten"/>
         <modelFile modelName="Users"/>
         <modelFile modelName="Locales"/>
+        <modelFile modelName="Localeszf"/>
       </modelsDirectory>
       <modulesDirectory/>
       <servicesDirectory enabled="false"/>
@@ -96,6 +99,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Users">
             <viewScriptFile forActionName="logout"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Users">
+            <viewScriptFile forActionName="guest"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="about"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

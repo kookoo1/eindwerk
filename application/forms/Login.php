@@ -7,7 +7,7 @@ class Application_Form_Login extends Zend_Form {
        
        
        $locale = Zend_Registry::get('Zend_Locale');
-       $url = '/'.$locale.'/login';
+       //$url = '/'.$locale.'/login';
        
        $this->setMethod('post');
        $this->setAttrib('enctype','multipart/form-data');

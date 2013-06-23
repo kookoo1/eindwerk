@@ -10,11 +10,20 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        //echo 'hier ben ik';
-        //die();
+           $redirector = Zend_Controller_Action_HelperBroker::getStaticHelper('redirector');
+            $locale = Zend_Registry::get('Zend_Locale');
+            $url = '/' . $locale . '/home';
+
+            $redirector->gotoUrl($url);
+    }
+
+    public function aboutAction()
+    {
         // action body
     }
 
 
 }
+
+
 

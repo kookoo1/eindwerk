@@ -18,7 +18,8 @@ class Eindwerk_Auth_Acl extends Zend_Controller_Plugin_Abstract {
 
 //        $controllers = array('users', 'index', 'producten', 'details', 
 //            'logout', 'error', 'noaccess', 'admin:index');
-        $controllers = array('users', 'index','producten','page','contact','home','error');
+        $controllers = array('users', 'index','producten','page','contact','home','error'
+            ,'bestel');
 
 //        $model_controllers = new Application_Model_Controllers();
 //        $controllers = $model_controllers->getControllers();
@@ -39,7 +40,8 @@ class Eindwerk_Auth_Acl extends Zend_Controller_Plugin_Abstract {
 
         $acl->allow('ADMIN'); // acces to averything
         $acl->allow('USER'); // acces to averything
-        //$acl->deny('USER','producten');
+        $acl->allow('GUEST'); // acces to averything
+        $acl->deny('GUEST','producten');
         
         
         //$acl->allow('USER','producten'); // acces to averything

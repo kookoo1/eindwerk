@@ -60,7 +60,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         )));
         $router->addRoute('about', new Zend_Controller_Router_Route(':lang/about', array(
             'controller' => 'index',
-            'action' => 'index'
+            'action' => 'about'
         )));
 
         $router->addRoute('contact', new Zend_Controller_Router_Route(':lang/contact', array(

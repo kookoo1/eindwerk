@@ -23,16 +23,28 @@ class Eindwerk_Auth_Auth extends Zend_Controller_Plugin_Abstract {
         // auth controle uitvoeren
         // if user is not logged in and is not requesting the logon page
         // - redirect to loginpage
-
-
-        if (!$auth->hasIdentity() && $request->getControllerName() != $loginController 
-                && $request->getActionName() != $loginAction) {
+         // when no indentity we set them on 'GUEST', so we can show the products
+         // 
+        // but we can't order them
+        if (!$auth->hasIdentity()) {
+            $dbAdapter = Zend_Db_Table::getDefaultAdapter();
+            $authAdapter = new Zend_Auth_Adapter_DbTable($dbAdapter);
+            $authAdapter->setTableName('users')
+                    ->setIdentityColumn('username')
+                    ->setCredentialColumn('passwd')
+                    ->setIdentity('guest')
+                    ->setCredential('guest');
+             $result = $auth->authenticate($authAdapter);
+        }
+           
+        if (!$auth->hasIdentity() && $request->getControllerName() != $loginController && $request->getActionName() != $loginAction) {
 
             $redirector = Zend_Controller_Action_HelperBroker::getStaticHelper('redirector');
             //die ('hier');
             $locale = Zend_Registry::get('Zend_Locale');
             $url = '/' . $locale . '/login';
 
+            //die('heir stop ik logon');
             $redirector->gotoUrl($url);
         }
 
@@ -53,17 +65,24 @@ class Eindwerk_Auth_Auth extends Zend_Controller_Plugin_Abstract {
                 $isAllowed = $acl->isAllowed($role, $request->getModuleName() . ':' .
                         $request->getControllerName(), $request->getActionName());
             } else {
-                $isAllowed = $acl->isAllowed($role, $request->getControllerName(), $request->getActionName());
+                $isAllowed = $acl->isAllowed($role, $request->getControllerName(),
+                        $request->getActionName());
             }
 
+//            var_dump($request);
+//            var_dump($isAllowed);
+            //die();
+            
             if (!$isAllowed) {
                 $redirector = Zend_Controller_Action_HelperBroker::getStaticHelper('redirector');
                 //$redirector->gotoUrl('/noaccess');
-                $redirector->gotoUrl('/nl_BE/login');
+                $redirector->gotoUrl('/' . $locale . '/login');
             }
         }
     }
 
+    
+    
 }
 
 ?>
