@@ -17,6 +17,9 @@ class Application_Model_Translation extends Zend_Db_Table_Abstract
         //die('hier '.$locale);
         $select = $this->select()->where('locale = ?',$locale);
         $result = $this->fetchAll($select);
+        
+//        var_dump($result);
+//        die();
         return $result;
     }
 

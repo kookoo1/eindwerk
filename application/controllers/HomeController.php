@@ -10,7 +10,8 @@ class HomeController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        var_dump($this->_getAllParams());
+//        var_dump($this->_getAllParams());
+//        die();
     }
  
 

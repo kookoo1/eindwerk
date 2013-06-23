@@ -14,8 +14,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $front->registerPlugin(new Eindwerk_Controller_Plugin_Translate()); // => library/Syntra/Controller/Plugin/Translate.php
         $front->registerPlugin(new Eindwerk_Controller_Plugin_Navigation());
         $front->registerPlugin(new Eindwerk_Controller_Plugin_NavigationCatg());
-        //$front->registerPlugin(new Eindwerk_Auth_Acl());
-        //$front->registerPlugin(new Eindwerk_Auth_Auth());
+        $front->registerPlugin(new Eindwerk_Controller_Plugin_Locales());
+        $front->registerPlugin(new Eindwerk_Auth_Acl());
+        $front->registerPlugin(new Eindwerk_Auth_Auth());
     }
 
     public function _initDbAdapter() {
@@ -38,21 +39,18 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         // add custom route
         // ':' before param = $_GET
         $router->addRoute('lang', new Zend_Controller_Router_Route(':lang', array(
-            'controller' => 'Home',
+            'controller' => 'home',
             'action' => 'index'
         )));
 
-        
-        
-        
-         $router->addRoute('contact', new Zend_Controller_Router_Route(':lang/contact/:slug', array(
-            'controller' => 'contact',
-            'action' => 'show'
-        )));
-         
+                
          $router->addRoute('login', new Zend_Controller_Router_Route(':lang/login', array(
-            'controller' => 'index',
-            'action' => 'index'
+            'controller' => 'users',
+            'action' => 'login'
+        )));
+         $router->addRoute('logout', new Zend_Controller_Router_Route(':lang/logout', array(
+            'controller' => 'users',
+            'action' => 'logout'
         )));
          
         

@@ -14,7 +14,7 @@ smaller than 980
         width: 69%;
         padding: 3% 4%;
     }
-    
+
     /* sidebar */
     #sidebar {
         width: 20%;
@@ -29,8 +29,14 @@ smaller than 980
         /* display: none; */
         width: 20%;
     }
+    #grid  .cell{
 
-}
+        width: 60%;
+        /*height: 66%;*/
+
+    }
+} 
+
 
 /************************************************************************************
 smaller than 650
@@ -100,7 +106,10 @@ smaller than 650
         margin: 0 0 10px;
     }
 
-
+    #grid .cell {
+        clear: both;
+    }
+    #creations article{width: 100%;}
 
 }
 

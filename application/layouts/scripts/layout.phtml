@@ -17,6 +17,13 @@
         <div id="container">
             <header id="header">
                 <h1 class="hidden">Shop Bloemen en planten</h1>
+                <div id="site-locale">
+                    <?php
+                    $localeMenu = Zend_Registry::get('localeMenu');
+                    $locale = Zend_Registry::get('Zend_Locale');
+                    echo $this->navigation()->menu()->renderMenu($localeMenu);
+                    ?>
+                </div>
                 <div id="site-logo">
                     <img src="/images/main/logo.png" alt="Bloem" width="100em" />
                 </div>
@@ -30,15 +37,21 @@
                     echo $this->navigation()->menu()->renderMenu($mainMenu);
                     ?>
                 </nav>
+
+
                 <!-- /#main-nav --> 
                 <form id="loginform">
+                    <input type="button" id="l" value="Logout"
+                           onclick="location.href =
+                                           '<?php echo $this->url(array('lang' => $locale->toString()), "logout"); ?>'">
                     <input type="button" id="l" value="Login" 
                            onclick="location.href =
                                            '<?php echo $this->url(array('lang' => $locale->toString()), "login"); ?>'">
-
                 </form>
                 <form id="searchform">
-                    <input type="search" id="s" placeholder="Search">
+                    <input type="search" id="s" placeholder="Search"
+                           onkeypress="location.href =
+                                           '<?php echo $this->url(array('lang' => $locale->toString()), "contact"); ?>'">
                 </form>
 
             </header>
@@ -53,8 +66,8 @@
             <aside id="sidebar">
 
                 <section class="category">
-                    <?php //echo $this->category()->overview();  ?>
-                    <h4 class="categorytitle"><?= $this->translate('categorie'); ?></h4>
+                    <?php //echo $this->category()->overview();   ?>
+                    <h4 class="categorytitle"><?= $this->translate('categorie-head'); ?></h4>
                     <nav  id="catg-nav" class="clearfix">
 
                         <?php

@@ -1,27 +1,42 @@
 <h1>Producten overzicht (TODO nog vertalen!!)</h1>
-<section id="creations">
+<section id='creations'>
+
     <?php
+    $teller = 1;
+    $modulo = 3;
     foreach ($this->producten as $producten) {
 
 //                var_dump($producten);
-        echo "<article id='product'>";
+        //echo "<div class=''> ";
+        echo "<article class='article'>";
         echo "<h1>" . $producten['title'] . "</h1>";
-        echo "<figure>";
-        echo "<img src='/images/producten/" . $producten['productID'] . "/" . $producten['productID'] . ".jpg' alt=" . $producten['productID'] . ">";
+        echo "<figure >";
+        echo "<img  src='/images/producten/" . $producten['productID'] . "/" . $producten['productID'] . ".jpg' alt=" . $producten['productID'] . ">";
 
         echo "</figure>";
 
-        echo "<div id='product'>";
+        echo "<div >";
         echo "<p>" . $producten['teaser'] . "</p>";
         echo "</div>";
 
         echo "<div id='price'>&euro; " . $producten['price'] . "</div>";
 
         //echo $this->form;
-        echo "<a href='detail/id/" . $producten['productID'] . "'>Detail</a>";
+        echo "<a href='detail/id/" . $producten['productID'] . "'>Detail".$modulo."</a>";
         echo '</article>';
+        // echo "</div> ";
+        ?>
+    
+        <?php
+        if ($teller % $modulo == 0) { // bereken of het deelbaar is door drie
+            ?>
+            <span style="clear:both;display:block;">&nbsp;</span>
+            <?php
+        }
+        $teller++;
     };
     ?>
+    <span style="clear:both;display:block;">&nbsp;</span>
 </section >
 
 

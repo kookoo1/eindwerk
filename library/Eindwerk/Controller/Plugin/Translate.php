@@ -5,6 +5,7 @@ class Eindwerk_Controller_Plugin_Translate extends Zend_Controller_Plugin_Abstra
     //put your code here
     
     public function preDispatch(Zend_Controller_Request_Abstract $request) {
+        
         $lang = $request->getParam('lang');
         if (empty($lang)) {
             $lang = 'nl_BE';
@@ -20,12 +21,7 @@ class Eindwerk_Controller_Plugin_Translate extends Zend_Controller_Plugin_Abstra
         
         $translate = new Zend_Translate('array',  array('yes' =>'ja'),$locale);// een vuile truck, gewoon aray verwacht één item!!!
         
-        // hier éénx uit de DB lezen!!!
-//        if ($cache === true) {
-//            
-//        }
-        
-        
+     
         // dit wordt nog in de cash gestopt !!!
         $model = new Application_Model_Translation();
         // haal alle vertalingen op voor de huidige locale
@@ -38,7 +34,13 @@ class Eindwerk_Controller_Plugin_Translate extends Zend_Controller_Plugin_Abstra
         }
         // maak overal beschikbaar, ook voor zend
         Zend_Registry::set('Zend_Translate', $translate); // trukje heel handig!!!
+        
+        
+        
     }
+    
+    
+    
 }
 
 ?>
