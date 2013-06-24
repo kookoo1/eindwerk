@@ -12,14 +12,18 @@ class Eindwerk_Auth_Acl extends Zend_Controller_Plugin_Abstract {
 
         $roles = array('USER', 'ADMIN', 'GUEST'); // uitlzen normaal DB!!! case sensitive!!!
         // here we make a model for the roles!!
-//        $model_roles = new Application_Model_Roles();
-//        $roles = $model_roles->getRoles();
+//        $modelRoles = new Application_Model_Roles();
+//        //die('hdfh');
+//        $roles = $modelRoles->getRoles()->toArray();
+//        
+//        var_dump($roles);
+//        die();
 
 
 //        $controllers = array('users', 'index', 'producten', 'details', 
 //            'logout', 'error', 'noaccess', 'admin:index');
         $controllers = array('users', 'index','producten','page','contact','home','error'
-            ,'bestel');
+            ,'basket');
 
 //        $model_controllers = new Application_Model_Controllers();
 //        $controllers = $model_controllers->getControllers();
@@ -36,27 +40,18 @@ class Eindwerk_Auth_Acl extends Zend_Controller_Plugin_Abstract {
             $acl->add(new Zend_Acl_Resource($controller));
         }
 
-        //die();
 
+        // everything for ADMIN
         $acl->allow('ADMIN'); // acces to averything
+        
+        // everything for USER
         $acl->allow('USER'); // acces to averything
+        
+        // everything for Guest
         $acl->allow('GUEST'); // acces to averything
-        $acl->deny('GUEST','producten');
+        $acl->deny('GUEST','basket');
         
         
-        //$acl->allow('USER','producten'); // acces to averything
-//        $acl->deny('USER'); // acces to everything
-//        $acl->allow('USER','page');// user no acces to admin 
-        
-        
-//        $acl->allow('USER', 'Producten'); // user no acces to admin 
-//        $acl->allow('USER', 'details'); // user no acces to admin 
-//        $acl->allow('USER', 'index'); // user no acces to admin 
-//        //$acl->allow('USER','Default-index');// user no acces to admin // dat werkt nog 
-//        $acl->allow('USER', 'Users'); // user no acces to admin 
-//        $acl->allow('USER', 'noaccess'); // user no acces to admin 
-//       $acl->allow('GUEST', 'Users'); // user no acces to admin 
-
         Zend_Registry::set('Zend_Acl', $acl);
     }
 

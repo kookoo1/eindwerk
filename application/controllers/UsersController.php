@@ -59,22 +59,22 @@ class UsersController extends Zend_Controller_Action
         Zend_Auth::getInstance()->clearIdentity();
    }
 
-    public function guestAction()
-    {
-                       // meegeven welke database driver we gebruiken
-                $authAdapter = new Zend_Auth_Adapter_DbTable(Zend_Registry::get('db'));
-
-                // login
-                $authAdapter->setTableName('users')
-                        ->setIdentityColumn('username')
-                        ->setCredentialColumn('passwd')
-                        ->setIdentity('guest')
-                        ->setCredential('guest');
-
-                // login uitvoeren
-                $result = $auth->authenticate($authAdapter);
-
-    }
+//    public function guestAction()
+//    {
+//                       // meegeven welke database driver we gebruiken
+//                $authAdapter = new Zend_Auth_Adapter_DbTable(Zend_Registry::get('db'));
+//
+//                // login
+//                $authAdapter->setTableName('users')
+//                        ->setIdentityColumn('username')
+//                        ->setCredentialColumn('passwd')
+//                        ->setIdentity('guest')
+//                        ->setCredential('guest');
+//
+//                // login uitvoeren
+//                $result = $auth->authenticate($authAdapter);
+//
+//    }
 
 
 }

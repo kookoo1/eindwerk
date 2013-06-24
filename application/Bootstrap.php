@@ -80,6 +80,10 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             'controller' => 'producten',
             'action' => 'detail'
         )));
+        $router->addRoute('basketDetail', new Zend_Controller_Router_Route(':lang/product/detail/id/order/:id', array(
+            'controller' => 'basket',
+            'action' => 'order'
+        )));
    
 
    

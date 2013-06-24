@@ -8,28 +8,9 @@ class Application_Model_Producten extends Application_Model_MyAbstractDB {
     protected $_primary = 'productID';
 
     public function getAllProducten($params) {
-//        var_dump($params);
-//        die();
-//        $paramsCatg = array('label' => $params['slug'],);
-//
-//       $categoryModel = new Application_Model_Category();
-//       $category = $categoryModel->selectCategory($paramsCatg); // select * from nieuws where id = $id
-//        var_dump($category);
-////        echo ' slug : ' .$category->['prodname'];
-//        die('after get all  catgory');
-//
-//        
-//        $locale = Zend_Registry::get('Zend_Locale');
-//        $select = $this->select(Zend_Db_Table::SELECT_WITH_FROM_PART)
-//                ->setIntegrityCheck(false)
-//                ->joinLeft(array('l' => 'categoryLocale'), 'category.categoryID = l.categoryID', 
-//                        array('category.categoryID AS categoryID', 'l.name AS name'))
-//                ->where('l.locale = ?', $locale);
-        $result = $this->fetchAll();
+       $result = $this->fetchAll();
 
-//        var_dump($result);
-//        die('after get all');
-        return $result; // select * from nieuws
+       return $result; // select * from nieuws
     }
 
     public function selectProducten($params) {

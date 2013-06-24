@@ -20,12 +20,12 @@ class ProductenController extends Zend_Controller_Action {
     }
 
     public function detailAction() {
-         $productenModel = new Application_Model_Producten();
+        $productenModel = new Application_Model_Producten();
 //       $producten = $productenModel->getAllProducten($this->_getAllParams()); // haal alles op
         $producten = $productenModel->getProductDetail($this->getAllParams())->current(); // haal alles op
 
         $this->view->producten = $producten;
-       // action body
+        // action body
     }
 
 }

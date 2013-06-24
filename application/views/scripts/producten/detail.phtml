@@ -14,9 +14,13 @@
     echo "</div>";
     echo "<div id='price'>&euro; " . $this->producten['price'] . "</div>";
 
+        //echo "<a href='" . $this->producten['productID'] . "/order'>Bestel</a>";
+        
+        
+     echo "<a href='order/" . $this->producten['productID'] . "'>Bestel</a>";
 
-    echo "<a href='bestel'>Bestel</a>";
-    echo '</article>';
+   //echo "<a href= $this->producten['productID'] . '/order'>Bestel</a>";
+   echo '</article>';
     ?>
     <span style="clear:both;display:block;">&nbsp;</span>
 </section >
