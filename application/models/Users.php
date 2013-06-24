@@ -28,7 +28,8 @@ class Application_Model_Users extends Zend_Db_Table_Abstract {
                 ->join(array('r' => 'roles'), 'ur.rolesID = r.rolesID', array('*'))
                 ->where('username = ?', $indentity);
 
-//        var_dump($select);
+//      var_dump($select);
+//      die();
         $result = $this->fetchAll($select)->current();
 //        echo 'role ==> '.$result['role'];
 //        var_dump($result);

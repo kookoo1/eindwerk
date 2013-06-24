@@ -38,7 +38,8 @@
         <controllerFile controllerName="Basket">
           <actionMethod actionName="index"/>
           <actionMethod actionName="order"/>
-          <actionMethod actionName="orderList"/>
+          <actionMethod actionName="orderlist"/>
+          <actionMethod actionName="orderdelete"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -122,7 +123,10 @@
             <viewScriptFile forActionName="order"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Basket">
-            <viewScriptFile forActionName="orderList"/>
+            <viewScriptFile forActionName="orderlist"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Basket">
+            <viewScriptFile forActionName="orderdelete"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

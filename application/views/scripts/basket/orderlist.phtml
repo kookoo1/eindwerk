@@ -1,0 +1,60 @@
+<h1>Basket overzicht (TODO nog vertalen!!)</h1>
+
+<section id='creations'>
+
+    <?php
+    $t = Zend_Registry::get("Zend_Translate");
+
+    $teller = 1;
+    $modulo = 3;
+
+    $orderTot = 0.0;
+
+    if ($this->basket != null) {
+        foreach ($this->basket as $orders) {
+
+            $params = array('id' => $orders['productID']);
+            $productenModel = new Application_Model_Producten();
+//       $producten = $productenModel->getAllProducten($this->_getAllParams()); // haal alles op
+            $producten = $productenModel->getProductDetail($params)->current(); // haal alles op
+
+            $number = $orders['number'];
+            $price = (double) $producten['price'];
+            $prodTot = $number * $price;
+
+            $orderTot+=$prodTot;
+//                var_dump($orders);
+            //echo "<div class=''> ";
+            echo "<article class='article'>";
+            echo "<h1>" . $producten['title'] . "</h1>";
+            echo "<figure >";
+            echo "<img  src='/images/producten/" . $orders['productID'] . "/" .
+            $orders['productID'] . ".jpg' alt=" . $orders['productID'] . ">";
+
+            echo "</figure>";
+
+            echo "<div id='price'>&euro; " . $price . " x " .
+            $number . " = &euro;" . $prodTot .
+            "</div>";
+
+            //echo $this->form;
+            //echo "<a href='detail/id/" . $orders['productID'] . "'>Detail</a>";
+            echo '</article>';
+            // echo "</div> ";
+            ?>
+
+            <?php
+            $teller++;
+        };
+    }
+    ?>
+    <span style="clear:both;display:block;">&nbsp;</span>
+
+    <?php echo "<h1>" . $t->translate('orderlist.total') . " = " . $orderTot . "&euro;</h1>";
+    ?>
+    <a href=<?php $locale = Zend_Registry::get('Zend_Locale');
+    echo $this->url( array('lang' => $locale->toString()), "basketDelete"); ?>>
+<?php echo "<h1>" . $t->translate('orderlist.delete') . "</h1>" ?>
+    </a>
+
+</section >

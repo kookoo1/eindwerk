@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Test layout1</title>
+        <title>Eindwerk WebmasterAdvanced 2012-2013</title>
         <link href="/css/style.css" rel="stylesheet" />
         <!-- media queries css -->
         <link href="/css/media-queries.css" rel="stylesheet" type="text/css">
@@ -28,6 +28,18 @@
                     <img src="/images/main/logo.png" alt="Bloem" width="100em" />
                 </div>
 
+                <section id="basket">
+                    <h3 class="hidden">overview basket</h3>
+                    <?php
+//                    echo $this->overviewBasket()->smallView(); 
+                    ?>
+                    
+                    <a href=<?php echo $this->url(
+                            array('lang' => $locale->toString()),"basketOverview"); ?>>
+                        <?php echo $this->overviewBasket()->smallView();?>
+                    </a>
+                </section>
+
 
                 <nav  id="main-nav" class="clearfix">
 
@@ -53,7 +65,7 @@
                            onkeypress="location.href =
                                            '<?php echo $this->url(array('lang' => $locale->toString()), "contact"); ?>'">
                 </form>
-             </header>
+            </header>
 
             <section id="content">
                 <?php echo $this->layout()->content; ?>

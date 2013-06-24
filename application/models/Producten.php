@@ -49,11 +49,6 @@ class Application_Model_Producten extends Application_Model_MyAbstractDB {
 
     public function getProductDetail($params) {
 
-
-//        var_dump($params);
-////
-//        die();
-
         $productID = $params['id'];
         $select = $this->select(Zend_Db_Table::SELECT_WITH_FROM_PART)
                 ->setIntegrityCheck(false)
@@ -61,15 +56,11 @@ class Application_Model_Producten extends Application_Model_MyAbstractDB {
                 ->join(array('p' => 'product'), 'pl.productID = p.productID', null)
                 ->where('p.productID = ?', $productID)
                 ->where('pl.locale = ?', $this->getLocale());
-                
-
-
-//        echo $select;
-//        die();
-
         $result = $this->fetchAll($select);
         return $result;
     }
+    
+    
 
 }
 

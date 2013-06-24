@@ -1,28 +1,22 @@
 <?php
 
-class BasketController extends Zend_Controller_Action {
+class BasketController extends Zend_Controller_Action
+{
 
-    public function init() {
+    public function init()
+    {
         /* Initialize action controller here */
     }
 
-    public function indexAction() {
+    public function indexAction()
+    {
         // action body
     }
 
-    public function orderAction() {
+    public function orderAction()
+    {
         
-        
-//        $paramsAll = $this->getAllParams();
-//        // action body
-//        var_dump($paramsAll);
-//        die('all params order');
-//        
-//                $productID = $params['id'];
-//                var_dump($productID);
-//                die('orderaction');
-        //               
-        $basketForm = new Application_Form_Basket();
+      $basketForm = new Application_Form_Basket();
 
         $this->view->form = $basketForm;
         if ($this->getRequest()->getPost()) {
@@ -38,9 +32,29 @@ class BasketController extends Zend_Controller_Action {
         }
     }
 
-    public function orderListAction() {
-        // action body
+    public function orderlistAction()
+    {
+         $basketModel = new Application_Model_Basket();
+//       $producten = $productenModel->getAllProducten($this->_getAllParams()); // haal alles op
+        $orderInBasket = $basketModel->getAllOrdersInBasket(); // haal alles op
+
+        $this->view->basket = $orderInBasket;
     }
 
+    public function orderdeleteAction()
+    {
+        $basketModel = new Application_Model_Basket();
+//       $producten = $productenModel->getAllProducten($this->_getAllParams()); // haal alles op
+        $deleteOrderInBasket = $basketModel->deleteAllOrdersInBasket(); // haal alles op
+
+        $this->view->basket = $deleteOrderInBasket;
+
+    }
+
+
 }
+
+
+
+
 

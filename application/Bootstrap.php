@@ -4,6 +4,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 {
 
     
+    protected function _initNamespaces()
+    {
+        $autoloader = Zend_Loader_Autoloader::getInstance();
+        $autoloader->registerNamespace('Krb_');
+    }    
     
     
     public function _initNavigation() {
@@ -83,6 +88,14 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $router->addRoute('basketDetail', new Zend_Controller_Router_Route(':lang/product/detail/id/order/:id', array(
             'controller' => 'basket',
             'action' => 'order'
+        )));
+        $router->addRoute('basketOverview', new Zend_Controller_Router_Route(':lang/basketoverview', array(
+            'controller' => 'basket',
+            'action' => 'orderlist'
+        )));
+        $router->addRoute('basketDelete', new Zend_Controller_Router_Route(':lang/basketdelete', array(
+            'controller' => 'basket',
+            'action' => 'orderdelete'
         )));
    
 
