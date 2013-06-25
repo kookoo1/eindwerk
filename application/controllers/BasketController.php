@@ -24,6 +24,7 @@ class BasketController extends Zend_Controller_Action {
                 $basketModel = new Application_Model_Basket();
                 $basket = $basketModel->addToBasketUser($allData); // haal alles op
                 //$this->view->producten = $producten;
+                
             }
         }
     }
