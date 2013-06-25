@@ -34,6 +34,7 @@
           <actionMethod actionName="login"/>
           <actionMethod actionName="logout"/>
           <actionMethod actionName="guest"/>
+          <actionMethod actionName="signup"/>
         </controllerFile>
         <controllerFile controllerName="Basket">
           <actionMethod actionName="index"/>
@@ -63,6 +64,7 @@
         <modelFile modelName="Basket"/>
         <modelFile modelName="Roles"/>
         <modelFile modelName="BasketDetail"/>
+        <modelFile modelName="UsersRoles"/>
       </modelsDirectory>
       <modulesDirectory/>
       <servicesDirectory enabled="false"/>
@@ -127,6 +129,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Basket">
             <viewScriptFile forActionName="orderdelete"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Users">
+            <viewScriptFile forActionName="signup"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

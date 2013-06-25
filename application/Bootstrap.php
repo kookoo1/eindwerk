@@ -53,6 +53,10 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             'controller' => 'users',
             'action' => 'login'
         )));
+         $router->addRoute('signup', new Zend_Controller_Router_Route(':lang/signup', array(
+            'controller' => 'users',
+            'action' => 'signup'
+        )));
          $router->addRoute('logout', new Zend_Controller_Router_Route(':lang/logout', array(
             'controller' => 'users',
             'action' => 'logout'
@@ -100,8 +104,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
    
 
    
-         
-
+      
 //        $router->addRoute('admin', new Zend_Controller_Router_Route('admin/:controller/:action', array(
 //            'module' => 'admin',
 //            'controller' => 'index',

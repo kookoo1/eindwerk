@@ -1,4 +1,8 @@
-<br /><br />
-<div id="view-content">
-	<p>Welkom op onze web shop!!</p>
-</div>
+<section id='creations'>
+
+    <?php
+    $t = Zend_Registry::get("Zend_Translate");
+    echo "<h1>" . $t->translate('home.headname') . "</h1>";
+    echo "<p>" . $t->translate('home.welkom') . "</p>";
+    ?>
+</section>

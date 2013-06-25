@@ -15,8 +15,7 @@ class Application_Model_Users extends Zend_Db_Table_Abstract {
         $select = $this->select()->where('username = ?', $indentity);
         $result = $this->fetchAll($select)->current();
 
-//      var_dump($result);
-        return $result;
+       return $result;
     }
 
     public function getUserByIdentityRole($indentity) {
@@ -36,6 +35,26 @@ class Application_Model_Users extends Zend_Db_Table_Abstract {
 //        die();
         return $result;
     }
+    
+    
+    public function addUser($params) {
+        
+        $this->insert($params);
+    }
 
+    
+    
+    function checkUnique($username)
+    {
+        $select = $this->_db->select()
+                            ->from($this->_name,array('username'))
+                            ->where('username=?',$username);
+        $result = $this->getAdapter()->fetchOne($select);
+        if($result){
+            return true;
+        }
+        return false;
+    }
+    
 }
 

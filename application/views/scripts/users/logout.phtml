@@ -1,5 +1,8 @@
-<br /><br />
-<div id="view-content">
-	<p>Dank u voor u eventuele bestelling!!
-        Tot een volgende keer.</p>
-</div>
+<section id='creations'>
+
+    <?php
+    $t = Zend_Registry::get("Zend_Translate");
+    //echo "<h1>" . $t->translate('logout.headname') . "</h1>";
+    echo "<p>" . $t->translate('logout.say') . "</p>";
+    ?>
+</section>

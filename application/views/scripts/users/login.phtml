@@ -1,1 +1,13 @@
 <?= $this->form; ?>
+<p>
+    
+    <a href=<?php
+    
+    $t = Zend_Registry::get("Zend_Translate");
+    $locale = Zend_Registry::get('Zend_Locale');
+    echo $this->url(
+            array('lang' => $locale->toString()), "signup");
+    ?>>
+           <?= $t->translate('login.signup'); ?>
+    </a>
+</p>

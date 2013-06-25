@@ -31,7 +31,9 @@ class Application_Form_Login extends Zend_Form {
             'label' => $t->translate('login.submit'),
             'required' => false,
             'ignore' => true
-        )));
+        ))); 
+        
+        
     }
 
 }

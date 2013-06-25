@@ -30,7 +30,7 @@ class Eindwerk_Controller_Plugin_Translate extends Zend_Controller_Plugin_Abstra
         // alle vertalingen toevogen aan het translate object
         foreach ($translations as $translation) {
             $t = array($translation->tag => $translation->translation);
-            $translate->addTranslation($t,$locale);
+            $translate->addTranslation($t,htmlspecialchars_decode($locale));
         }
         // maak overal beschikbaar, ook voor zend
         Zend_Registry::set('Zend_Translate', $translate); // trukje heel handig!!!
