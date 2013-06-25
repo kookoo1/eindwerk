@@ -1,4 +1,9 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Basket</b> and script/action name <b>orderdelete</b></p>
-</div>
+<section id='creations'>
+
+    <?php
+    $t = Zend_Registry::get("Zend_Translate");
+    echo "<h1>".$t->translate('basket.delete')."</h1>";
+   echo "<p>".$t->translate('basket.afterdelete')."</p>";
+    
+    ?>
+</section>

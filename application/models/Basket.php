@@ -133,19 +133,40 @@ class Application_Model_Basket extends Application_Model_MyAbstractDB {
 
 // end'public function getBasketUserFromAuth()
 //==============================================================================
-
-    
 //------------------------------------------------------------------------------
     /**
      * here we delete all the orders for this login
      */
     public function deleteAllOrdersInBasket() {
-        
+
         //$delete = $this->delete($where);
+        // first we need the basketID
+        $basketUser = $this->getBasketUserFromAuth();
+        // then we delete all detail of the basket
+        $result = null;
+        if ($basketUser != null) {
+            $basketDetailModel = new Application_Model_BasketDetail();
+            $result = $basketDetailModel->deleteAllOrdersInBasket($basketUser);
+        }
+
+        // then the basket
+        try {
+            $basketID = $basketUser['basketID'];
+//            $result = $this->delete(Zend_Db_Table::SELECT_WITH_FROM_PART)
+//                    ->where('basketID = ?', $basketID);
+            
+            $condition = array(
+                'basketID = ?' => $basketID
+                    );
+            $this->delete($condition);
+            
+        } catch (Exception $ex) {
+            
+        }
     }
+
 // end'public function getBasketUserFromAuth()
 //==============================================================================
-
 }
 
 // end 'class Application_Model_Basket extends Application_Model_MyAbstractDB

@@ -16,7 +16,10 @@ nav ul li{display: inline;}
 #content #creations img{border:1px solid #adb6a9;}
 */
 
-
+h1{font-size: 24px}
+h2{font-size: 19px}
+h3{font-size: 15px}
+    
 /************************************************************************************
 STRUCTURE
 *************************************************************************************/
@@ -266,6 +269,7 @@ CONTENT
 
 
 #content #creations article{float:left;width:30%; margin:1%; /*border: 1px solid*/}
+#content #creations p{padding: 3%; /*border: 1px solid*/}
 #content #creations img{width:90%; padding: 2%;margin-top: 5%; margin-bottom: 5%;/*border:1px solid #adb6a9*/;}
 
 /************************************************************************************

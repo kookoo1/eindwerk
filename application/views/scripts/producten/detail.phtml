@@ -1,9 +1,9 @@
 <section id="creations">
     <?php
-    //$this->producten as $producten;
-//var_dump($this->producten);
+     $t = Zend_Registry::get("Zend_Translate");
+
     echo "<article id='product'>";
-    echo "<h1>" . $this->producten['title'] . "</h1>";
+    echo "<h2>" . $this->producten['title'] . "</h2>";
     echo "<figure>";
     echo "<img src='/images/producten/" . $this->producten['productID'] . "/" . $this->producten['productID'] . ".jpg' alt=" . $this->producten['productID'] . ">";
 
@@ -16,7 +16,7 @@
         //echo "<a href='" . $this->producten['productID'] . "/order'>Bestel</a>";
         
         
-     echo "<a href='order/" . $this->producten['productID'] . "'>Bestel</a>";
+     echo "<a href='order/" . $this->producten['productID'] . "'>".$t->translate('product.purchase')."</a>";
 
    //echo "<a href= $this->producten['productID'] . '/order'>Bestel</a>";
    echo '</article>';

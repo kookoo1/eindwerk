@@ -1,10 +1,8 @@
-<h1>Basket overzicht (TODO nog vertalen!!)</h1>
-
 <section id='creations'>
 
     <?php
     $t = Zend_Registry::get("Zend_Translate");
-
+    echo "<h1>".$t->translate('basket.overview')."</h1>";
     $teller = 1;
     $modulo = 3;
 
@@ -26,7 +24,7 @@
 //                var_dump($orders);
             //echo "<div class=''> ";
             echo "<article class='article'>";
-            echo "<h1>" . $producten['title'] . "</h1>";
+            echo "<h2>" . $producten['title'] . "</h2>";
             echo "<figure >";
             echo "<img  src='/images/producten/" . $orders['productID'] . "/" .
             $orders['productID'] . ".jpg' alt=" . $orders['productID'] . ">";
@@ -50,11 +48,12 @@
     ?>
     <span style="clear:both;display:block;">&nbsp;</span>
 
-    <?php echo "<h1>" . $t->translate('orderlist.total') . " = " . $orderTot . "&euro;</h1>";
+    <?php echo "<h2>" . $t->translate('basket.total') . " = " . $orderTot . "&euro;</h2>";
     ?>
     <a href=<?php $locale = Zend_Registry::get('Zend_Locale');
-    echo $this->url( array('lang' => $locale->toString()), "basketDelete"); ?>>
-<?php echo "<h1>" . $t->translate('orderlist.delete') . "</h1>" ?>
+    echo $this->url(array('lang' => $locale->toString()), "basketDelete");
+    ?>>
+        <?php echo "<p><h2>" . $t->translate('basket.delete') . "</h2></p>" ?>
     </a>
 
 </section >

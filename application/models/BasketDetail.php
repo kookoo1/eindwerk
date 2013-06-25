@@ -24,9 +24,9 @@ class Application_Model_BasketDetail extends Application_Model_MyAbstractDB {
                     //->from(array('bD' => 'basketDetail'))
                     //->joinInner(array('pl' => 'productLocale'), 'pl.productID = bD.productID', array('*'))
                     ->where('basketID = ?', $basketID);
-            
-            
-           $result = $this->fetchAll($select);
+
+
+            $result = $this->fetchAll($select);
         } catch (Exception $ex) {
             
         }
@@ -36,6 +36,25 @@ class Application_Model_BasketDetail extends Application_Model_MyAbstractDB {
     public function getNumOfOrdersInBasket($params) {
 
         $result = $this->getAllOrdersInBasket($params)->count();
+        return $result;
+    }
+
+    public function deleteAllOrdersInBasket($params) {
+
+        $result = null;
+        try {
+
+            $basketID = $params['basketID'];
+
+            $condition = array(
+                'basketID = ?' => $basketID
+                    );
+            $this->delete($condition);
+//            $result = $this->delete(Zend_Db_Table::SELECT_WITH_FROM_PART)
+//                    ->where('basketID = ?', $basketID);
+        } catch (Exception $ex) {
+            
+        }
         return $result;
     }
 
